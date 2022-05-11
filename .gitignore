@@ -106,6 +106,7 @@ dist
 ## wonsama added 
 .DS_Store
 test*.ts
+bin/*
 # .yarn
 # .vscode
 
