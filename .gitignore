@@ -102,3 +102,18 @@ dist
 
 # TernJS port file
 .tern-port
+
+## wonsama added 
+.DS_Store
+test*.ts
+# .yarn
+# .vscode
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
