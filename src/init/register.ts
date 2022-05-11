@@ -9,9 +9,9 @@
 //  IMPORTS
 //
 import "dotenv/config";
-import { default as dotenvCreate } from "./helper/dotenv";
+import { default as dotenvCreate } from "../helper/dotenv";
 import { util, AuthApiClient, KnownAuthStatusCode } from "node-kakao";
-import { default as input } from "./helper/readline";
+import { default as input } from "../helper/readline";
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -21,7 +21,6 @@ import { default as input } from "./helper/readline";
 // let PASSWORD = (process.env["PASSWORD"] as string) || "";
 // let DEVICE_UUID = (process.env["DEVICE_UUID"] as string) || "";
 // let DEVICE_NAME = (process.env["DEVICE_NAME"] as string) || "kakao-bot";
-// f718f68cce35986e18a6936c8fb829e5b499253f
 
 /////////////////////////////////////////////////////////////////////
 //

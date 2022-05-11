@@ -3,7 +3,9 @@
     "build": "tsc",
     "start": "node ./bin/app.js",
     "dev": "ts-node ./src/app.ts",
-    "register": "ts-node ./src/register.ts",
+    "register": "ts-node ./src/init/register.ts",
+    "mon": "ts-node ./src/init/monitor-all.ts",
+    "me": "ts-node ./src/monitor/me.ts",
     "test": "ts-node ./src/test.ts"
   },
   "name": "p-kakao-samabot",
