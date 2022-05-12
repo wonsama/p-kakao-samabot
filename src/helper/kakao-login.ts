@@ -1,7 +1,10 @@
 /*
-    FILE : kakao-login.ts 
-    TITLE : 로그인 처리를 수행한다
-    CREATED : 2022.05.11
+    FILE : 
+      kakao-login.ts 
+    TITLE : 
+      로그인 처리를 수행한다
+    CREATED : 
+      2022.05.11
 */
 
 /////////////////////////////////////////////////////////////////////
@@ -47,12 +50,12 @@ export async function login() {
   if (!loginRes.success) {
     throw new Error(`Web login failed with status: ${loginRes.status}`);
   }
-  console.log(`Received access token: ${loginRes.result.accessToken}`);
+  // console.log(`Received access token: ${loginRes.result.accessToken}`);
 
   const res = await CLIENT.login(loginRes.result);
   if (!res.success) throw new Error(`Login failed with status: ${res.status}`);
 
-  console.log("Login success");
+  console.log(`${DEVICE_NAME} login success`);
 }
 /////////////////////////////////////////////////////////////////////
 //

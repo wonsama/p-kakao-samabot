@@ -6,6 +6,7 @@
 - [pm2 : docs](https://pm2.keymetrics.io/docs/usage/quick-start/)
 - [pm2 : restart-strategies](https://pm2.io/docs/runtime/features/restart-strategies/)
 - [yarnpkg : editor-sdks](https://yarnpkg.com/getting-started/editor-sdks)
+- [yarnpkg : initializing-pnp](https://yarnpkg.com/features/pnp#initializing-pnp)
 - [npm : dotenv](https://www.npmjs.com/package/dotenv)
 
 ## BLOG

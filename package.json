@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "tsc",
-    "start": "node ./bin/app.js",
+    "start": "node -r ./.pnp.cjs ./bin/app.js",
     "dev": "ts-node ./src/app.ts",
     "register": "ts-node ./src/init/register.ts",
     "test": "ts-node ./src/test.ts"

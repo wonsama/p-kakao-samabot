@@ -106,10 +106,12 @@ dist
 ## wonsama added 
 .DS_Store
 test*.ts
-bin/*
-# .yarn
-# .vscode
+.market.json
 
+## for build
+bin/*
+
+## for yarn
 .yarn/*
 !.yarn/cache
 !.yarn/patches
