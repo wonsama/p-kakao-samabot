@@ -1,7 +1,10 @@
 /*
-    FILE : readline.ts 
-    TITLE : terminal로 부터 값을 입력 받도록 처리
-    CREATED : 2022.05.11
+    FILE : 
+      readline.ts 
+    TITLE : 
+      terminal로 부터 값을 입력 받도록 처리
+    CREATED : 
+      2022.05.11
 */
 
 /////////////////////////////////////////////////////////////////////
@@ -34,7 +37,13 @@ import * as readline from "readline";
 //
 //  EXPORTS FUNCTIONS
 //
-export default function (message: string): Promise<string> {
+
+/**
+ * 메시지 입력 처리
+ * @param message 문의 사항
+ * @returns 답변 내용
+ */
+export function input(message: string): Promise<string> {
   let rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,

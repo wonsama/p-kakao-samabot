@@ -25,6 +25,9 @@ https://nodejs.org/ko/
 - `yarn add dotenv`
 - `yarn add @types/dotenv`
 - `yarn add typescript`
+- `yarn add axios`
+- `yarn add node-kakao`
+- 기타 등등 필요한 의존성 추가
 - `yarn add -D ts-node`
 - `yarn tsc --init --rootDir src --outDir ./bin --esModuleInterop --lib es2015 --module commonjs --noImplicitAny true`
 

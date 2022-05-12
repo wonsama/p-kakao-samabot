@@ -1,7 +1,10 @@
 /*
-    FILE : register.ts
-    TITLE : 카카오톡 기기등록, PC 연결 시 해당 APP은 종료됨에 유의 
-    CREATED : 2022.05.11
+    FILE : 
+      register.ts
+    TITLE : 
+      카카오톡 기기등록, PC 연결 시 해당 APP은 종료됨에 유의 
+    CREATED : 
+      2022.05.11
 */
 
 /////////////////////////////////////////////////////////////////////
@@ -9,19 +12,14 @@
 //  IMPORTS
 //
 import "dotenv/config";
-import { default as dotenvCreate } from "./helper/dotenv";
+import { dotenvCreate } from "../helper/dotenv";
 import { util, AuthApiClient, KnownAuthStatusCode } from "node-kakao";
-import { default as input } from "./helper/readline";
+import { input } from "../helper/readline";
 
 /////////////////////////////////////////////////////////////////////
 //
 //  CONSTS
 //
-// let EMAIL = (process.env["EMAIL"] as string) || "";
-// let PASSWORD = (process.env["PASSWORD"] as string) || "";
-// let DEVICE_UUID = (process.env["DEVICE_UUID"] as string) || "";
-// let DEVICE_NAME = (process.env["DEVICE_NAME"] as string) || "kakao-bot";
-// f718f68cce35986e18a6936c8fb829e5b499253f
 
 /////////////////////////////////////////////////////////////////////
 //
