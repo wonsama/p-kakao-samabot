@@ -44,3 +44,6 @@ https://www.typescriptlang.org/tsconfig/#lib
     }
 }
 ```
+
+TalkChatData / TalkNormalChannel 일반톡, 그룹챗
+TalkChatData / TalkOpenChannel 오픈톡
