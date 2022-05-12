@@ -1,6 +1,8 @@
 import {
+  AttachmentContent,
   ChatBuilder,
   KnownChatType,
+  MentionContent,
   ReplyContent,
   TalkChannel,
   TalkChatData,
@@ -39,7 +41,6 @@ export class Upbit implements CommandInterface {
     let unique = [...new Set(items)];
     unique.sort();
     if (info == null) {
-      let market;
       let buf = [];
       buf.push(`명령을 확인 바랍니다.`);
       buf.push(`/p [token_id]`);
@@ -57,12 +58,20 @@ export class Upbit implements CommandInterface {
     }
 
     // SEND REPLY
-    this.#channel.sendChat(
-      new ChatBuilder()
-        .append(new ReplyContent(this.#data.chat))
-        // .append(new MentionContent(sender))
-        .text(text)
-        .build(KnownChatType.REPLY)
-    );
+    const sender = this.#data.getSenderInfo(this.#channel);
+    if (sender != undefined) {
+      this.#channel.sendChat(
+        new ChatBuilder()
+          .append(new MentionContent(sender))
+          .text("님에게 답장\n" + text)
+          .build(KnownChatType.TEXT)
+      );
+    }
+
+    // 오픈 채팅방에서는 동작하지 않음 - reply 가 text 임 대신 attachment 가 있음
+    // new ChatBuilder()
+    // .append(new ReplyContent(this.#data.chat))
+
+    // this.#channel.sendChat("!23");
   }
 }
