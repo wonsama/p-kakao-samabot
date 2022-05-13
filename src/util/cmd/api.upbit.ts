@@ -1,9 +1,7 @@
 import {
-  AttachmentContent,
   ChatBuilder,
   KnownChatType,
   MentionContent,
-  ReplyContent,
   TalkChannel,
   TalkChatData,
 } from "node-kakao";
