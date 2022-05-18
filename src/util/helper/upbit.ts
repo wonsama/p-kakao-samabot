@@ -210,3 +210,22 @@ export async function ticker(symbol: string): Promise<MARKET_RESPONSE[]> {
     return [];
   }
 }
+
+/**
+ * 지정한 마켓 정보 기반 가격 정보를 반환한다
+ * @param markets 마켓 목록 컴마로 구분
+ * @returns 마켓 가격 (기본) BTC, STEEM, SBD, TRON
+ */
+export async function tickerFixed(
+  markets: string = "KRW-BTC,KRW-STEEM,KRW-SBD,KRW-TRON"
+): Promise<MARKET_RESPONSE[]> {
+  let res;
+
+  try {
+    res = await instance.get(`/ticker?markets=${markets}`);
+    return res.data;
+  } catch (err) {
+    console.error(`[tickerFixed] ${markets} error occured`);
+    return [];
+  }
+}
