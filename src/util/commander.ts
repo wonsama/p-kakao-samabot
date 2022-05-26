@@ -11,10 +11,14 @@
 
 import { Upbit } from "./cmd/api.upbit";
 import { TalkChannel, TalkChatData } from "node-kakao";
-import { RssHelp } from "./cmd/rss.help";
-import { RssCoinness } from "./cmd/rss.coinness";
 import { RssMain } from "./cmd/rss.main";
-import { COIN_DESK_KOREA, COIN_READERS, TOKEN_POST } from "./helper/rss";
+import {
+  COINNESS,
+  COIN_DESK_KOREA,
+  COIN_READERS,
+  HELP,
+  TOKEN_POST,
+} from "./helper/rss";
 /////////////////////////////////////////////////////////////////////
 //
 //  IMPORTS
@@ -103,7 +107,8 @@ export function getExecutor(
     return new Upbit(data, channel);
   } else if (cmd.cmd?.toUpperCase() == "N") {
     if (cmd.message == "1") {
-      return new RssCoinness(data, channel);
+      // return new RssCoinness(data, channel);
+      return new RssMain(data, channel, COINNESS);
     } else if (cmd.message == "2") {
       return new RssMain(data, channel, COIN_DESK_KOREA);
     } else if (cmd.message == "3") {
@@ -111,7 +116,8 @@ export function getExecutor(
     } else if (cmd.message == "4") {
       return new RssMain(data, channel, COIN_READERS);
     } else {
-      return new RssHelp(data, channel);
+      // return new RssHelp(data, channel);
+      return new RssMain(data, channel, HELP);
     }
   }
   return null;

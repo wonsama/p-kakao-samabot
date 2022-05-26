@@ -51,7 +51,7 @@ export class Upbit implements CommandInterface {
     unique.sort();
     if (info == null) {
       let buf = [];
-      buf.push(`명령을 확인 바랍니다.`);
+      buf.push(`아래 명령을 확인 바랍니다.`);
       buf.push(`/p [token_id]`);
       buf.push(`예제) /p steem`);
       buf.push(`예제) /p top`);
@@ -84,7 +84,9 @@ export class Upbit implements CommandInterface {
           .append(new MentionContent(sender))
           .text(
             "님에게 답장\n" +
-              `(${moment.tz("Asia/Seoul").format("yy.MM.DD HH:mm:ss")})\n \n` +
+              `( ${moment
+                .tz("Asia/Seoul")
+                .format("yy.MM.DD HH:mm:ss")} )\n \n` +
               text
           )
           .build(KnownChatType.TEXT)
@@ -94,7 +96,6 @@ export class Upbit implements CommandInterface {
     // 오픈 채팅방에서는 동작하지 않음 - reply 가 text 임 대신 attachment 가 있음
     // new ChatBuilder()
     // .append(new ReplyContent(this.#data.chat))
-
     // this.#channel.sendChat("!23");
   }
 }

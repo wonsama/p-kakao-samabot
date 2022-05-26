@@ -12,12 +12,16 @@
 //  IMPORT
 //
 import Parser, { Item } from "rss-parser";
+import { ARTICLE_TYPE } from "./rss.coinness";
 
 /////////////////////////////////////////////////////////////////////
 //
 //  CONST
 //
-
+export const COINNESS: RssFeed = {
+  title: "코인니스",
+  url: "https://api.coinness.live/feed/v1",
+};
 export const COIN_DESK_KOREA: RssFeed = {
   title: "코인데스크코리아",
   url: "http://www.coindeskkorea.com/rss/allArticle.xml",
@@ -29,6 +33,10 @@ export const TOKEN_POST: RssFeed = {
 export const COIN_READERS: RssFeed = {
   title: "코인리더스",
   url: "https://www.coinreaders.com/rss/rss_news.php",
+};
+export const HELP: RssFeed = {
+  title: "도움말",
+  url: "",
 };
 
 /////////////////////////////////////////////////////////////////////
@@ -71,7 +79,7 @@ export type RssFeed = {
 //
 export async function getFeeds(
   rss: RssFeed
-): Promise<({ [key: string]: any } & Item)[]> {
+): Promise<({ [key: string]: any } & (Item | ARTICLE_TYPE))[]> {
   let parser = new Parser();
   const feed = await parser.parseURL(rss.url);
   //   for (let item of feed.items) {

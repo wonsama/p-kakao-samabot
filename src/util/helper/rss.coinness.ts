@@ -12,13 +12,13 @@
 //  IMPORT
 //
 import axios from "axios";
+import { COINNESS } from "./rss";
 /////////////////////////////////////////////////////////////////////
 //
 //  CONST
 //
-const COINNESS_API_URL_PREFIX = "https://api.coinness.live/feed/v1";
-export const COINNESS_ARTICLES_URL: string =
-  "/articles?limit=20&section=latest";
+
+const COINNESS_ARTICLES_URL: string = "/articles?limit=20&section=latest";
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -30,14 +30,14 @@ export const COINNESS_ARTICLES_URL: string =
 //  DEFAULT
 //
 const instance = axios.create({
-  baseURL: COINNESS_API_URL_PREFIX,
+  baseURL: COINNESS.url,
   timeout: 1000,
 });
 /////////////////////////////////////////////////////////////////////
 //
 //  TYPE
 //
-type ARTICLE_TYPE = {
+export interface ARTICLE_TYPE {
   id: number;
   title: string;
   link: string;
@@ -50,7 +50,7 @@ type ARTICLE_TYPE = {
     link: string;
   };
   description: string;
-};
+}
 /////////////////////////////////////////////////////////////////////
 //
 //  INTERFACE
