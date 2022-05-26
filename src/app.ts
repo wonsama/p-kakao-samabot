@@ -18,14 +18,19 @@ import {
   setSamabotChat,
 } from "./helper/kakao-login";
 import { scheduledPriceChat, top5 } from "./util/cmd/api.upbit";
+import { replyRss } from "./util/cmd/rss.main";
 
 import { getExecutor } from "./util/commander";
+import { COINNESS } from "./util/helper/rss";
 
 /////////////////////////////////////////////////////////////////////
 //
 //  CONSTS
 //
 const CHANNEL_ID_ME = parseInt(process.env.CHANNEL_ID_ME || "0");
+
+const SCHEDULED_TXT = process.env.SCHEDULED_TXT || "mm:ss"; // 나중에 크론 스타일로 바꾸기, 그런데 현 시점 기준 딱히 사유는 없음
+const SCHEDULED_TIME = process.env.SCHEDULED_TIME || "00:00";
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -85,14 +90,15 @@ CLIENT.on("chat", async (data, channel) => {
     channelInit = true;
 
     // 주기적으로 메시지 보내기
-    setInterval(function () {
+    setInterval(async function () {
       // 내부 CRON 설정 (사실 비효율적이나 현대 고성능 컴퓨팅에서는 별 무리 없다 생각)()
       // moment.tz("Asia/Seoul").format("yyyy-MM-DD HH:mm:ss");
-      if (moment.tz("Asia/Seoul").format("mm:ss") == "00:00") {
+      if (moment.tz("Asia/Seoul").format(SCHEDULED_TXT) == SCHEDULED_TIME) {
         // 가격 정보 매시간 알려주기
         let channel = getSamabotChat();
-        scheduledPriceChat(channel);
-        top5(channel);
+        await top5(channel);
+        await scheduledPriceChat(channel);
+        await replyRss(channel, COINNESS);
       }
     }, 1000 * 1);
   }
