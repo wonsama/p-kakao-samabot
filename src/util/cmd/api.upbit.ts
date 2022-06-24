@@ -14,6 +14,7 @@ import {
   MARKET_INFO,
   getMarketJson,
   tickerFixed,
+  reloadMarket,
 } from "../helper/upbit";
 
 import moment from "moment-timezone";
@@ -34,6 +35,7 @@ export class Upbit implements CommandInterface {
 
     // top10 추가
     if (symbol == "top") {
+      await reloadMarket(); // top 호출 시 마다 symbol 정보를 업데이트 하는 형식으로 교체
       top5(this.#channel);
       return;
     }
