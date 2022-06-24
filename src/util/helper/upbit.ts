@@ -109,6 +109,10 @@ init();
 //  EXPORTS FUNCTIONS
 //
 
+export async function reloadMarket() {
+  marketJson = await reloadMarketJson();
+}
+
 /**
  * 마켓 목록 정보를 반환한다
  * @returns 마켓 목록정보
